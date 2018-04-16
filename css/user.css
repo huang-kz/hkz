@@ -1,0 +1,43 @@
+/* 
+* @Author: Marte
+* @Date:   2018-04-10 20:30:06
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-04-11 11:06:02
+*/
+.main_t{height:128px;background-color: #FAFAFA;border-bottom:1px solid #E1E1E1;padding-top: 22px;margin-bottom:14px;}
+.main_t .mt_l{width:316px;position:relative;}
+.main_t .mt_l i{display:inline-block;width:95px;height:91px;background:url("../img/main_6.png") no-repeat;margin-left: 20px;}
+.main_t .mt_l ul{padding-right:100px;border-right:1px solid #F3F3F3;position:absolute;left:140px;top:3px;}
+.main_t .mt_l ul li{line-height: 20px;font-size:12px;color:#999999;}
+
+.main_t .mt_0{width:270px;margin-left: 20px;}
+.main_t .mt_0 h5{font-size:16px;color:#B19999;margin-left: 16px;}
+.main_t .mt_0 ul li{float:right;width:46px;height:68px;margin-left: 25px;}
+.main_t .mt_0 ul li p{font-size:12px;color:#999999;margin-left: 8px;margin-top:3px;}
+
+
+
+.main_b .m_bl{width:87px;height:672px;border-right:1px solid #F5F5F5;padding-left: 26px;padding-right: 22px;margin-bottom:20px;}
+.main_b .m_bl ul{margin-bottom:18px;}
+.main_b .m_bl ul li{line-height: 26px;font-size:12px;}
+.main_b .m_bl ul li a{color:#777777;}
+.main_b .m_bl ul li h5{line-height: 28px;font-size:12px;color:#333333;}
+
+
+.main_b .m_br{width:1030px;height:570px;position:relative;}
+.m_br .m_br1{width:687px;height:318px;background-color:#FEFBF8;border:1px solid #E1E1E1;position:absolute;left:0;top:0;}
+.m_br .m_br2{width:343px;height:318px;border:1px solid #E1E1E1;position:absolute;left:687px;top:0;}
+.m_br .m_br3{width:687px;height:252px;border:1px solid #E1E1E1;position:absolute;left:0;top:318px;}
+.m_br .m_br4{width:343px;height:252px;border:1px solid #E1E1E1;position:absolute;left:687px;top:318px;}
+
+.m_br .m_br0 h5{height:40px;line-height: 40px;text-align:left;padding-left: 15px;}
+.m_br .m_br0 h5 span{color:#666666;border-left:4px solid  #F15C18;margin-left: 2px;}
+
+.m_br .m_br1:hover{border:1px solid #F15C18;}
+.m_br .m_br2:hover{border:1px solid #F15C18;}
+.m_br .m_br3:hover{border:1px solid #F15C18;}
+.m_br .m_br4:hover{border:1px solid #F15C18;}
+
+
+
+

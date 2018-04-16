@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>欢迎注册</title>
+    <link rel="stylesheet" href="../css/reg.css"/>
+</head>
+<body>
+    <header>
+        <i></i>
+        <span>我已经注册,现在就<a href="login.html">登录</a></span>
+    </header>
+    <main>
+        <div class="main_c">
+            <div class="main_cl">
+                <div class="main_t"><span>手机注册</span></div>
+                <div class="main_b">
+                    <form action="localhost:1010/index.html" method="get">
+                        <span>手机号:</span>
+                        <input type="text" class="form1" id="phone" placeholder="请输入手机号码"/><br/>
+                        <span>密码:</span>
+                        <input type="text" class="form3" id="password" placeholder="请输入密码"/><br/>
+                        <span class="sp1">验证码:</span>
+                        <input type="text" class="form2"  id="opt" placeholder="输入验证码"/>
+                        <span class="output"></span>
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked="checked">  阅读并同意&lt;&lt;<a href="#">服务协议</a>&gt;&gt;
+                            </label>
+                        </div>
+                        <a href="../index.html"><button type="button" class="btn">注册</button></a>
+                    </form>
+                </div>
+                
+            </div>
+            <div class="main_cr">
+                <p>注册之后您可以</p>
+                <ul>
+                    <li><img src="../img/main_1.png"><span>购买商品支付订单</span></li>
+                    <li><img src="../img/main_2.png"><span>收藏商品收藏店铺</span></li>
+                    <li><img src="../img/main_3.png"><span>安全交易诚信无忧</span></li>
+                    <li><img src="../img/main_4.png"><span>会员等级享受特权</span></li>
+                    <li><img src="../img/main_5.png"><span>交易评价站外分享</span></li>
+                </ul>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+       <div class="yg_footer">
+            <div class="container clearfix">
+                <div class="ft_t">
+                    <ul>
+                        <li><a href="index.html"><span>首页</span></a></li>
+                        <li><a href="index.html"><span>招商合作</span></a></li>
+                        <li><a href="index.html"><span>关于央广购物</span></a></li>
+                        <li><a href="index.html"><span>联系我们</span></a></li>
+                        <li><a href="index.html"><span>成为供应商</span></a></li>
+                        <li><a href="index.html"><span>招贤纳士</span></a></li>
+                    </ul>
+                </div>
+                <div class="ft_c">
+                    <span class="ft_c0"><img src="../img/ft.png">京公网安备：11011502002190</span>
+                    <span>京ICP备10038858号</span>
+                    <span>食品流通许可证编号：SP1101151210063489</span>
+                    <span>信息网络传播视听节目许可证 0102002号</span>
+                </div>
+                <div class="ft_c1">
+                    <span>Copyright©2010-2017 cnrmall.com All Rights Reserved</span>
+                    <span>服务热线：4008-518-518</span>
+                </div>
+                <div class="ft_b">
+                    <span><img src="../img/ft1.png"></span>
+                    <span><img src="../img/ft2.png"></span>
+                    <span><img src="../img/ft3.png"></span>
+                    <span><img src="../img/ft4.png"></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/common.js"></script>
+    <script>
+        (function(){
+            let iphone = document.querySelector('#phone');
+            let password = document.querySelector('#password');
+
+            let output = document.querySelector('.output');
+            let opt = document.querySelector('#opt');
+            let btn = document.querySelector('.btn');
+
+
+            output.innerText = randomNumber(1000,10000);
+
+            //判断手机号是否已经注册
+            phone.onblur = function(){
+                let _phone = iphone.value;
+
+                ajax({
+                    url:'../api/reg.php',
+                    data:{iphone:_phone},
+                    success:function(data){
+                        if(data === 'success'){
+                            alert('可以注册.');
+                        }else if(data === 'fail'){
+                            alert('已有注册,请换一个');
+                            return false;
+                            
+                        }
+                    }
+
+                });
+
+            };
+
+            //注册
+            btn.onclick = function(){
+
+                let _phone = iphone.value;
+                let _password = password.value;
+
+                ajax({
+                    url:'../api/reg.php',
+                    data:{
+                        iphone:_phone,
+                        password:_password,
+                        type:'reg'
+                    },
+                    success:function(data){
+                        if(data == 'success'){
+                            alert('注册成功!');
+                        }else if(data == 'fail'){
+                            alert('注册失败,请重新注册!');
+                            return false;
+                        }
+                    }
+
+                });
+
+                if(opt.value != output.innerText){
+                    alert('验证码错误!');
+                    return false;
+                };
+            }
+           
+        })()
+
+    </script>
+</body>
+</html>

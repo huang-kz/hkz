@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <style>
+        .yg_m{border-bottom:1px solid #FE5621;}
+        .yg_mb{height:352px;border-top:1px solid #666666;}
+        .yg_mb h5{height:56px;line-height: 56px;text-align:left;font-size:16px;color:#666666;}
+        .yg_mb ul{height:200px;overflow:hidden;}
+        .yg_mb ul li{height:200px;float:left;margin-right:10px;}
+        .yg_mt{background-color: #F7F7F7;}
+        .yg_mt .top{height:68px;line-height: 68px;font-size:24px;color:#616161;text-align:left;margin-left:20px;}
+        .yg_mt .yg_mtt{background-color: #fff;}
+        .yg_mt .bttom{height:57px;width:1190px;background-color: #EEEEEE;margin-top: 20px;}
+        .yg_mt .bttom span{width:150px;height:57px;line-height:57px;text-align:center;background-color: #FF7300;float:right;}
+    </style>
+</head>
+<body>
+    <div class="yg_top">
+            <div class="container clearfix">
+                    <ul class="fr">
+                        <li>
+                            <a href="localhost:1010/html/login.html">您好,请登录</a>&nbsp;&nbsp;
+                            <a href="localhost:1010/html/register.html" style="color:#FF5B57;">免费注册</a>
+                        </li>
+                        <li>
+                            <a><span>我的订单</span><i></i></a>
+                        </li>
+                        <li>
+                            <a><span>我的收藏</span><i></i></a>
+                        </li>
+                        <li>
+                            <a><span style="border-right:0 none;">客户服务</span><i></i></a>
+                        </li>
+                        <li style="padding-top:9px;">
+                            <i><img src="../img/arror_1.png"></i>
+                            <a style="margin-right:0 none;border-right:0 none;">成为供应商</a>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    <div class="yg_m">
+        <div class="container">
+            <a href="../index.html" target="_blank">
+                <img src="../img/logol.png">
+            </a>
+        </div>
+    </div>
+    <div class="yg_mt">
+        <div class="container">
+            <div class="top">我的购物车</div>
+            <div class="yg_mtt clearfix"></div>
+            <div class="bttom">
+                <span>结算</span>
+            </div>
+        </div>
+        
+
+    </div>
+    <div class="yg_mb">
+        <div class="container">
+            <h5>浏览记录</h5>
+            <ul class="goods">
+                
+            </ul>
+        </div>
+    </div>
+    <div class="yg_footer">
+            <div class="container clearfix">
+                <div class="ft_t">
+                    <ul>
+                        <li><a href="index.html"><span>首页</span></a></li>
+                        <li><a href="index.html"><span>招商合作</span></a></li>
+                        <li><a href="index.html"><span>关于央广购物</span></a></li>
+                        <li><a href="index.html"><span>联系我们</span></a></li>
+                        <li><a href="index.html"><span>成为供应商</span></a></li>
+                        <li><a href="index.html"><span>招贤纳士</span></a></li>
+                    </ul>
+                </div>
+                <div class="ft_c">
+                    <span><img src="../img/ft.png" style="margin-right:2px;margin-bottom:1px;">京公网安备：11011502002190</span>
+                    <span>京ICP备10038858号</span>
+                    <span>食品流通许可证编号：SP1101151210063489</span>
+                    <span>信息网络传播视听节目许可证 0102002号</span>
+                </div>
+                <div class="ft_c1">
+                    <span>Copyright©2010-2017 cnrmall.com All Rights Reserved</span>
+                    <span>服务热线：4008-518-518</span>
+                </div>
+                <div class="ft_b">
+                    <span><img src="../img/ft1.png" height="47" width="114"></span>
+                    <span><img src="../img/ft2.png" height="47" width="120"></span>
+                    <span><img src="../img/ft3.png" height="47" width="115"></span>
+                    <span><img src="../img/ft4.png" height="47" width="117"></span>
+                </div>
+            </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="../js/car.js"></script>
+    <script>
+        
+
+
+    </script>
+    <script>
+        (function(){
+            var ul = document.querySelector('.goods');
+            ajax({
+                url:'../api/list.php',
+                success:function(data){
+                    ul.innerHTML = data.map(function(item){
+                        return `<li data-myid="${item.id}">
+                                    <img src="${item.imgurl}">
+                                    <p>${item.myname}</p>
+                                    <p style="color:red;">￥${item.price}</p>
+                                </li>`
+
+                    }).join('');
+                }
+
+            })
+
+
+        })()
+
+
+
+    </script>
+</body>
+</html>

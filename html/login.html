@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>欢迎登陆</title>
+    <link rel="stylesheet" href="../css/login.css"/>
+</head>
+<body>
+    <div class="login">
+        <header>
+            <i></i>
+            <div class="l_r">
+                <i></i>
+                <div>
+                    <span>您好，欢迎来到央广购物</span><br/>
+                    <span>已注册的会员请登录，或立即&nbsp;<a href="reg.html">注册新会员</a></span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main_l">
+                <i></i>
+            </div>
+            <div class="main_r">
+                <h3>用户登录</h3>
+                <div class="main_b">
+                    <form action="../index.html" method="get">
+                        <span>手机号:</span>
+                        <input type="text" class="form1" id="phone" placeholder="请输入手机号码"/><br/>
+                        <span class="sp2">密码:</span>
+                        <input type="text" class="form3" id="password" placeholder="请输入账户号码"/><br/>
+                        <span class="sp1">验证码:</span>
+                        <input type="text" class="form2"  id="opt" placeholder="输入验证码"/>
+                        <span class="output"></span>
+                        <p>忘记密码</p>
+                        <button type="button" class="btn"><a href="localhost:1010//index.html">登录</a></button>
+                        <p style="color:#333333;font-size:12px;float:left;">使用合作网站账号登录</p>
+                        <img src="../img/we.png" style="float:left;margin-left:5px;margin-top:8px;">
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+           <div class="yg_footer">
+                <div class="container clearfix">
+                    <div class="ft_t">
+                        <ul>
+                            <li><a href="index.html"><span>首页</span></a></li>
+                            <li><a href="index.html"><span>招商合作</span></a></li>
+                            <li><a href="index.html"><span>关于央广购物</span></a></li>
+                            <li><a href="index.html"><span>联系我们</span></a></li>
+                            <li><a href="index.html"><span>成为供应商</span></a></li>
+                            <li><a href="index.html"><span>招贤纳士</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="ft_c">
+                        <span class="ft_c0"><img src="../img/ft.png">京公网安备：11011502002190</span>
+                        <span>京ICP备10038858号</span>
+                        <span>食品流通许可证编号：SP1101151210063489</span>
+                        <span>信息网络传播视听节目许可证 0102002号</span>
+                    </div>
+                    <div class="ft_c1">
+                        <span>Copyright©2010-2017 cnrmall.com All Rights Reserved</span>
+                        <span>服务热线：4008-518-518</span>
+                    </div>
+                    <div class="ft_b">
+                        <span><img src="../img/ft1.png"></span>
+                        <span><img src="../img/ft2.png"></span>
+                        <span><img src="../img/ft3.png"></span>
+                        <span><img src="../img/ft4.png"></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/common.js"></script>
+    <script>
+        (function(){
+            let phone = document.querySelector('#phone');
+            let password = document.querySelector('#password');
+            let opt = document.querySelector('#opt');
+            let output = document.querySelector('.output');
+            let btn = document.querySelector('.btn');
+
+            output.innerText = randomNumber(1000,10000);
+
+            btn.onclick = function(){
+                let _phone = phone.value;
+                let _password = password.value;
+
+                ajax({
+                    url:'../api/login.php',
+
+                    data:{
+                        iphone:_phone,
+                        password:_password
+                    },
+                    success:function(data){
+                        if(data === 'success'){
+                            alert('登录成功!');
+                        }else if(data === 'fail'){
+                            alert('登录失败!');
+                        }
+                    }
+                });
+               
+                if(opt.value != output.innerText){
+                    alert('验证码错误!');
+                    return false;
+                };
+
+            }
+
+
+        })()
+
+
+    </script>
+</body>
+</html>
